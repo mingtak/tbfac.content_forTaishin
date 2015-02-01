@@ -1,0 +1,623 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tbfac.content\n"
+"POT-Creation-Date: 2015-01-12 17:32+0000\n"
+"PO-Revision-Date: 2013-06-28 15:36+0800\n"
+"Last-Translator: TsungWei Hu <marr.tw@gmail.com>\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: zh-tw\n"
+"Language-Name: Traditional Chinese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: tbfac.content\n"
+
+#: ./info_templates/view.pt:115
+msgid "About the Event"
+msgstr "關於展演"
+
+#: ./portlets/infovenuesmap.py:164
+msgid "Add Info Venues Map portlet"
+msgstr "新增地圖方框"
+
+#: ./portlets/latestreview.py:105
+msgid "Add Latest Review Portlet"
+msgstr "新增最新評論方框"
+
+#: ./portlets/mostliked.py:151
+msgid "Add Most Liked Portlet"
+msgstr "新增最多按讚方框"
+
+#: ./info.py:130
+msgid "Add new venue"
+msgstr "新增活動地點"
+
+#: ./info.py:136
+msgid "Add new venue address"
+msgstr "新增活動地點地址"
+
+#: ./info.py:137
+msgid "Add new venue, please fill venue address in here."
+msgstr "方便於管理員建立新地點，同時在還沒被建立時顯示於前端。"
+
+#: ./info_templates/view.pt:86
+#: ./venue.py:39
+msgid "Address"
+msgstr "活動地址"
+
+#: ./profiles/default/types/tbfac.Advert.xml
+msgid "Advert"
+msgstr "首頁磚"
+
+#: ./profiles/default/types/tbfac.Article.xml
+msgid "Article"
+msgstr "文章"
+
+#: ./article.py:84
+msgid "Author"
+msgstr "張貼者"
+
+#: ./folder_templates/view.pt:67
+msgid "Author:"
+msgstr "張貼者："
+
+#: ./committee.py:43
+#: ./committee_templates/view.pt:18
+#: ./jury.py:48
+msgid "Award Category"
+msgstr "獎項分類"
+
+#: ./quarterly.py:77
+msgid "Award Info"
+msgstr "自行填寫評論展演"
+
+#: ./quarterly_templates/view.pt:39
+msgid "Award Infos"
+msgstr "相關展演"
+
+#: ./info.py:181
+msgid "Banner Image"
+msgstr "內頁圖片"
+
+#: ./committee.py:66
+#: ./jury.py:55
+msgid "Bio"
+msgstr "經歷"
+
+#: ./article.py:108
+#: ./info.py:143
+#: ./nomination.py:60
+msgid "Body"
+msgstr "內文"
+
+#: ./article.py:61
+msgid "Captcha error, plaease try again."
+msgstr "驗證碼錯誤，請重新輸入"
+
+#: ./info.py:85
+#: ./info_templates/view.pt:57
+#: ./nomination_templates/view.pt:16
+msgid "Category"
+msgstr "活動類別"
+
+#: ./vocabularies.py:22
+msgid "Changhua County"
+msgstr "彰化縣"
+
+#: ./vocabularies.py:24
+msgid "Chiayi City"
+msgstr "嘉義市"
+
+#: ./vocabularies.py:25
+msgid "Chiayi County"
+msgstr "嘉義縣"
+
+#: ./committee.py:51
+#: ./profiles/default/types/tbfac.Committee.xml
+msgid "Committee"
+msgstr "委員會委員"
+
+#: ./info.py:57
+msgid "Constraints size: 230X230 px"
+msgstr "尺寸錯誤，圖片尺寸限制 寬X長為230X230 px"
+
+#: ./info.py:62
+msgid "Constraints size: W:H = 710X300 px"
+msgstr "尺寸錯誤，圖片尺寸限制 寬X長為710X300 px"
+
+#: ./info.py:164
+#: ./info_templates/view.pt:138
+msgid "Contact Name"
+msgstr "活動聯絡人"
+
+#: ./info.py:159
+#: ./info_templates/view.pt:133
+msgid "Contact Phone"
+msgstr "活動聯絡電話"
+
+#: ./info.py:87
+msgid "Dancing"
+msgstr "舞蹈"
+
+#: ./info.py:101
+#: ./info_templates/view.pt:76
+msgid "Date Details"
+msgstr "詳細時間說明"
+
+#: ./info.py:102
+msgid "Date Details Description"
+msgstr "例：5/15 (五) ～ 5/16 (六)，19:30；5/16 (六) ～ 5/17 (日)，14:30。"
+
+#: ./quarterly_templates/view.pt:20
+msgid "Dates:"
+msgstr "作品呈現時間："
+
+#: ./committee.py:60
+#: ./jury.py:43
+msgid "Description"
+msgstr "簡介"
+
+#: ./portlets/latestreview.py:106
+msgid "Display list of latest Other Juries Reviews."
+msgstr "顯示其他提名觀察人的評論。"
+
+#: ./info.py:87
+msgid "Drama"
+msgstr "戲劇"
+
+#: ./portlets/infovenuesmap.py:177
+msgid "Edit Info Venues Map portlet"
+msgstr "編輯地圖方框"
+
+#: ./portlets/latestreview.py:114
+msgid "Edit Latest Review Portlet"
+msgstr "編輯最新評論方框"
+
+#: ./portlets/mostliked.py:160
+msgid "Edit Most Liked Portlet"
+msgstr "編輯最多按讚方框"
+
+#: ./info.py:97
+#: ./info_templates/view.pt:69
+msgid "End Date"
+msgstr "結束展演日期"
+
+#: ./info.py:169
+msgid "Event URL"
+msgstr "活動網址"
+
+#: ./portlets/mostliked.py:45
+msgid "Events"
+msgstr "標題"
+
+#: ./info.py:148
+#: ./info_templates/view.pt:121
+msgid "Fee Details"
+msgstr "費用說明"
+
+#: ./info.py:149
+msgid "Fee Details Description"
+msgstr "例：500元。2012/11/15前早鳥優惠：400元；持台新信用卡刷卡享有85折優惠。"
+
+#: ./committee.py:51
+msgid "FinalReviewer"
+msgstr "決審委員"
+
+#: ./profiles/default/types/tbfac.Folder.xml
+msgid "Folder"
+msgstr "藝論"
+
+#: ./committee.py:49
+msgid "Group"
+msgstr "分類"
+
+#: ./portlets/infovenuesmap.py:45
+msgid "Height"
+msgstr "高度"
+
+#: ./portlets/infovenuesmap.py:46
+msgid "Height for maps, specified as an absolute (like '450px' or '15em'), or relative (like '100%') size."
+msgstr "以 450px 或 100% 方式指定地圖高度"
+
+#: ./portlets/latestreview.py:26
+#: ./portlets/mostliked.py:28
+msgid "How many items to list."
+msgstr "顯示的數量。"
+
+#: ./vocabularies.py:18
+msgid "Hsinchu City"
+msgstr "新竹市"
+
+#: ./vocabularies.py:17
+msgid "Hsinchu County"
+msgstr "新竹縣"
+
+#: ./vocabularies.py:30
+msgid "Hualien County"
+msgstr "花蓮縣"
+
+#: ./article.py:91
+#: ./review.py:80
+msgid "If no referenced Info items to select, please manually fill them in the next field."
+msgstr "若選單無該評論展演，則在下列「自行填寫評論展演」文字欄位中新增。"
+
+#: ./info.py:131
+msgid "If no result for venue, please add new venue in here."
+msgstr "若上一欄輸入關鍵字後，仍無法選取適當地點，請在本欄新增一筆。並盡可能輸入該地點之正式全名。"
+
+#: ./quarterly.py:78
+msgid "If not in 'Info', please fill in this field. And use comma to separate multiple Info data."
+msgstr "若展演尚未建檔，請在本欄填寫展演名稱，如為兩節目以上展演項目，請用「、」分隔。例：《羅密歐與茱麗葉》、《馬克白》"
+
+#: ./profiles/default/types/tbfac.Info.xml
+#: ./quarterly.py:84
+msgid "Info"
+msgstr "活動訊息"
+
+#: ./quarterly_templates/view.pt:18
+msgid "Info Title:"
+msgstr "作品名稱："
+
+#: ./committee.py:51
+#: ./profiles/default/types/tbfac.Jury.xml
+msgid "Jury"
+msgstr "提名觀察人"
+
+#: ./quarterly_templates/view.pt:30
+msgid "Jury:"
+msgstr "提名觀察人："
+
+#: ./vocabularies.py:27
+msgid "Kaohsiung City"
+msgstr "高雄市"
+
+#: ./vocabularies.py:13
+msgid "Keelung City"
+msgstr "基隆市"
+
+#: ./vocabularies.py:34
+msgid "Kinmen County"
+msgstr "金門縣"
+
+#: ./portlets/latestreview.py:43
+msgid "Latest Review"
+msgstr "最新評論"
+
+#: ./advert.py:28
+#: ./info.py:174
+#: ./venue.py:44
+msgid "Lead Image"
+msgstr "標題圖片"
+
+#: ./vocabularies.py:33
+msgid "Lienchiang County"
+msgstr "連江縣"
+
+#: ./folder.py:18
+msgid "Link Image"
+msgstr "連結圖檔"
+
+#: ./folder.py:23
+msgid "Link URL"
+msgstr "連結網址"
+
+#: ./vocabularies.py:19
+msgid "Miaoli County"
+msgstr "苗栗縣"
+
+#: ./info.py:87
+msgid "Music"
+msgstr "音樂"
+
+#: ./committee.py:39
+#: ./jury.py:39
+msgid "Name"
+msgstr "姓名"
+
+#: ./vocabularies.py:21
+msgid "Nantou County"
+msgstr "南投縣"
+
+#: ./vocabularies.py:15
+msgid "New Taipei City"
+msgstr "新北市"
+
+#: ./nomination.py:48
+msgid "Nominated Info"
+msgstr "入圍理由"
+
+#: ./profiles/default/types/tbfac.Nomination.xml
+msgid "Nomination"
+msgstr "提名"
+
+#: ./committee.py:51
+msgid "NominatorGroup"
+msgstr "提名團"
+
+#: ./portlets/latestreview.py:25
+#: ./portlets/mostliked.py:27
+msgid "Number of items to display"
+msgstr "顯示的數量"
+
+#: ./committee.py:51
+msgid "ObserverGroup"
+msgstr "觀察團"
+
+#: ./info.py:87
+msgid "Opera"
+msgstr "戲曲"
+
+#: ./info.py:80
+#: ./info_templates/view.pt:51
+msgid "Organizer"
+msgstr "主辦人/單位"
+
+#: ./info.py:87
+msgid "Other"
+msgstr "其他"
+
+#: ./vocabularies.py:32
+msgid "Penghu County"
+msgstr "澎湖縣"
+
+#: ./committee.py:44
+#: ./jury.py:49
+#: ./nomination.py:42
+msgid "Performing Arts"
+msgstr "表演藝術"
+
+#: ./committee.py:72
+#: ./jury.py:61
+msgid "Photo"
+msgstr "照片"
+
+#: ./vocabularies.py:28
+msgid "Pingtung County"
+msgstr "屏東縣"
+
+#: ./portlets/latestreview.py:20
+#: ./portlets/mostliked.py:22
+msgid "Portlet Header"
+msgstr "方框標題"
+
+#: ./profiles/default/types/tbfac.Quarterly.xml
+msgid "Quarterly"
+msgstr "季提名名單"
+
+#: ./quarterly_templates/view.pt:56
+msgid "Rationale:"
+msgstr "提名理由簡述："
+
+#: ./committee.py:51
+msgid "RecommendGroup"
+msgstr "推薦團"
+
+#: ./article.py:90
+#: ./review.py:79
+msgid "Referenced Info"
+msgstr "由選單尋找符合該文章之展演資訊項目"
+
+#: ./info.py:107
+msgid "Region"
+msgstr "所屬縣市"
+
+#: ./quarterly.py:67
+msgid "Related 'Info' content type"
+msgstr "相關連的展演名稱"
+
+#: ./profiles/default/types/tbfac.Review.xml
+msgid "Review"
+msgstr "展演觀察評論"
+
+#: ./article.py:101
+#: ./review.py:90
+msgid "Reviewed Info"
+msgstr "自行填寫評論展演"
+
+#: ./article_templates/view.pt:25
+#: ./review_templates/view.pt:35
+msgid "Reviewed Infos"
+msgstr "評論的展演"
+
+#: ./info.py:117
+msgid "Search Venue, Please input keyword for venue"
+msgstr "請輸入展演地點關鍵字，並選取地點。如「華山1914文化創意產業園區」，請輸入「華山」，若該地點已經被建立即會出現選項，若無請自行填寫下一欄位。"
+
+#: ./info.py:87
+msgid "Show"
+msgstr "展覽"
+
+#: ./info.py:93
+#: ./info_templates/view.pt:65
+msgid "Start Date"
+msgstr "首次展演日期"
+
+#: ./profiles/default/types/tbfac.Advert.xml
+msgid "TBFAC Advert Type"
+msgstr "首頁磚表單"
+
+#: ./profiles/default/types/tbfac.Article.xml
+msgid "TBFAC Article Type"
+msgstr "<ol style=\"margin-left: 30px;\"><li style=\"list-style-type: decimal;\">藝術無遠弗屆，歡迎大家在此暢談，但若發表任何涉及廣告、毀謗等非藝術相關或違法圖文及影音，本站有責任維護談論品質並刪除。</li><li style=\"list-style-type: decimal;\">確定張貼文章後表示您同意並授權給本網站(ArTalks：)永久使用，以及他人社群分享功能。</li><li style=\"list-style-type: decimal;\">文章內容皆屬張貼者個人言論自由，不代表本站立場；若觸及相關法令，張貼者將為個人行為負完全的法律責任。</li><li style=\"list-style-type: decimal;\">轉載私人圖文或影音必須取得授權並標示出處，若有侵權問題須由張貼者負完全的法律責任。</li></ol>"
+
+#: ./profiles/default/types/tbfac.Committee.xml
+msgid "TBFAC Committee Type"
+msgstr "委員表單"
+
+#: ./profiles/default/types/tbfac.Folder.xml
+msgid "TBFAC Folder Type"
+msgstr "藝論表單"
+
+#: ./profiles/default/types/tbfac.Info.xml
+msgid "TBFAC Info Type"
+msgstr "<p>歡迎您於ARTalks藝術動態新增展演資訊，請確認以下刊登之規定後再行填寫：</p>1.刊登內容限以藝術展演活動為主，若為不相關宣傳，ARTalks保有下架權利。<br />2.新增展演資料後將顯示於藝術動態中，審核後將發稿於首頁若為過期或重複展演，將不刊登於首頁動態牆。<br />3.請確認您上稿之圖文皆有所屬版權，並同意ARTalks站內交流使用。<br />4.由於ARTalks網站目前仍於完善建置階段，若遇刊登問題還請來信：<a href='mailto:info@taishinart.org.tw'>info@taishinart.org.tw</a></p>"
+
+#: ./profiles/default/types/tbfac.Jury.xml
+msgid "TBFAC Jury Type"
+msgstr "提名觀察人表單"
+
+#: ./profiles/default/types/tbfac.Nomination.xml
+msgid "TBFAC Nomination Type"
+msgstr "提名表單"
+
+#: ./profiles/default/types/tbfac.Quarterly.xml
+msgid "TBFAC Quarterly Type"
+msgstr "季提名名單表單"
+
+#: ./profiles/default/types/tbfac.Review.xml
+msgid "TBFAC Review Type"
+msgstr "展演觀察評論表單"
+
+#: ./profiles/default/types/tbfac.Venue.xml
+msgid "TBFAC Venue Type"
+msgstr "活動地點表單"
+
+#: ./vocabularies.py:20
+msgid "Taichung City"
+msgstr "臺中市"
+
+#: ./vocabularies.py:26
+msgid "Tainan City"
+msgstr "臺南市"
+
+#: ./vocabularies.py:14
+msgid "Taipei City"
+msgstr "臺北市"
+
+#: ./vocabularies.py:31
+msgid "Taitung County"
+msgstr "臺東縣"
+
+#: ./vocabularies.py:16
+msgid "Taoyuan County"
+msgstr "桃園縣"
+
+#: ./advert.py:39
+msgid "Text Above"
+msgstr "上方文字"
+
+#: ./advert.py:40
+msgid "Text Above the Title."
+msgstr "標題上方的文字。"
+
+#: ./portlets/infovenuesmap.py:24
+msgid "This portlet displays a map of Info Venues locations."
+msgstr "顯示展演訊息的地點資訊"
+
+#: ./portlets/mostliked.py:152
+msgid "This portlet lists Most Liked objects."
+msgstr "用來顯示最多按讚項目列表。"
+
+#: ./info.py:154
+#: ./info_templates/view.pt:127
+msgid "Ticket URL"
+msgstr "售票網址"
+
+#: ./article.py:79
+#: ./nomination.py:35
+#: ./quarterly.py:62
+msgid "Title"
+msgstr "標題"
+
+#: ./advert.py:34
+msgid "URL"
+msgstr "連結網址"
+
+#: ./committee.py:44
+#: ./jury.py:49
+#: ./nomination.py:42
+msgid "Uncatrgorized"
+msgstr "不分類"
+
+#: ./committee.py:73
+#: ./jury.py:62
+msgid "Upload Photo"
+msgstr "上傳照片"
+
+#: ./advert.py:29
+#: ./info.py:175
+msgid "Upload a Image of Size 230x230."
+msgstr "上傳 230x230 尺寸的圖檔，若未上傳將顯示ARTalks預設圖片。"
+
+#: ./info.py:182
+msgid "Upload a Image of Size 710x300."
+msgstr "上傳 710x300 尺寸的圖檔。"
+
+#: ./article.py:102
+#: ./review.py:91
+msgid "Use comma to separate multiple Info data."
+msgstr "如為兩節目以上展演項目，請用「、」分隔。例：《羅密歐與茱麗葉》、《馬克白》"
+
+#: ./info.py:116
+#: ./info_templates/view.pt:83
+#: ./profiles/default/types/tbfac.Venue.xml
+msgid "Venue"
+msgstr "活動地點"
+
+#: ./quarterly_templates/view.pt:24
+msgid "Venue:"
+msgstr "作品呈現地點："
+
+#: ./portlets/infovenuesmap.py:35
+msgid "Venues"
+msgstr "活動地點"
+
+#: ./committee.py:44
+#: ./jury.py:49
+#: ./nomination.py:42
+msgid "Visual Arts"
+msgstr "視覺藝術"
+
+#: ./committee.py:56
+msgid "Year"
+msgstr "屆別"
+
+#: ./vocabularies.py:29
+msgid "Yilan County"
+msgstr "宜蘭縣"
+
+#: ./vocabularies.py:23
+msgid "Yunlin County"
+msgstr "雲林縣"
+
+#: ./folder_templates/view.pt:72
+msgid "at"
+msgstr " "
+
+#. Default: "Author:"
+#: ./article_templates/view.pt:16
+msgid "author_forum"
+msgstr ""
+
+#. Default: "Author:"
+#: ./article_templates/view.pt:15
+msgid "author_talk"
+msgstr ""
+
+#. Default: "Info Venues Map Portlet"
+#: ./profiles/default/portlets.xml
+msgid "description"
+msgstr "描述"
+
+#. Default: "Most Liked Portlet"
+#: ./profiles/default/portlets.xml
+msgid "description2"
+msgstr "描述"
+
+#. Default: "Latest Review Portlet"
+#: ./profiles/default/portlets.xml
+msgid "description3"
+msgstr "描述"
+
+#. Default: "Read More…"
+#: ./folder_templates/view.pt:86
+msgid "read_more_info"
+msgstr "閱讀全文…"
+
+#. Default: "Read More…"
+#: ./folder_templates/view.pt:88
+msgid "read_more_talk"
+msgstr "更多討論…"
+

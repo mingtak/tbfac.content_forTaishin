@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tbfac.content">
+<body>
+
+<metal:header fill-slot="header">
+
+<div class="nomi-year-info">
+第 <tal:year replace="python: int(context.year) - 2001">N</tal:year> 屆
+<tal:group repeat="grp context/group">
+  <span tal:replace="grp">Group Member</span>
+  <span class="separator" tal:condition="not: repeat/grp/end">,</span>
+</tal:group>
+<tal:field i18n:translate="">Award Category</tal:field>:
+<span tal:content="context/category">Text</span>
+</div>
+
+<div class="leadImageContainer"
+ tal:define="photo nocall:context/photo"
+ tal:condition="nocall:photo">
+  <img tal:attributes="src string:${context/absolute_url}/@@download/photo/${photo/filename};
+                       height photo/_height | nothing;
+                       width photo/_width | nothing;" />
+</div>
+
+</metal:header>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+<tal:bio condition="context/bio">
+  <span tal:replace="structure context/bio/output">Text</span>
+</tal:bio>
+
+<!--
+<tal:list define="obj_url context/@@plone_context_state/object_url;
+                  author python:obj_url.split('/')[-1];
+                  contents python:context.portal_catalog.searchResults(dict(Creator=author, sort_on='created', sort_order='reverse'))[:10];"
+       condition="contents">
+<tal:field i18n:translate="">Content List</tal:field>:
+<ul>
+  <tal:block repeat="item contents">
+    <li><a href="" tal:attributes="href item/getURL"
+                   tal:content="item/pretty_title_or_id">title</a></li>
+  </tal:block>
+<ul>
+</tal:list>
+-->
+                         
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

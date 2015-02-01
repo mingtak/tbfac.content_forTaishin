@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tbfac.content">
+<body>
+
+<metal:header fill-slot="header">
+<div style="float: right;"
+ tal:define="image nocall:context/image"
+ tal:condition="nocall:image">
+  <a href="#"
+     tal:attributes="href python: portal_url + context.link">
+  <img src=""
+   tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};" />
+  </a>
+</div>
+</metal:header>
+
+<metal:text fill-slot="content-core">
+
+<tal:entries
+ define="Batch python:modules['Products.CMFPlone'].Batch;
+         b_size python:int(request.get('b_size', 10));
+         b_start python:int(request.get('b_start', 0));
+         results python:context.restrictedTraverse('@@folderListing')(portal_type=('tbfac.Info', 'tbfac.Article'), batch=True, b_size=b_size, b_start=b_start);
+         batch python:Batch(results, b_size, b_start);">
+
+  <div class="tileItem visualIEFloatFix"
+   tal:repeat="item results">
+
+    <tal:entry define="obj item/getObject">
+
+     <div tal:replace="structure obj/@@addthis_listing_item_buttons" />
+     <div id="socialtools"><img src="#"
+      tal:attributes="src string:${portal_url}/pic/icon-reply.png" /> 0 |</div>
+
+     <span style="float: left; margin: 0 1em 0.5em 0;"
+      tal:condition="python:obj.portal_type=='tbfac.Info'">
+     <a href="#"
+        tal:attributes="href obj/absolute_url">
+      <img src="" alt=""
+       tal:attributes="src string:${obj/absolute_url}/@@download/image;
+                       alt string: ;
+                       width string:170;" />
+     </a>
+     </span>
+
+    <h2 class="tileHeadline">
+     <a href="#" class="summary url"
+      tal:attributes="href obj/absolute_url"
+      tal:content="obj/Title">Title</a>
+    </h2>
+
+    <div class="exhib-date"
+     tal:condition="python:obj.portal_type=='tbfac.Info'">
+      <span tal:content="obj/startDate">Start Date</span>
+      <span tal:condition="obj/endDate"> -
+      <span tal:replace="obj/endDate" />
+      </span>
+    </div>
+
+    <tal:article condition="python:obj.portal_type=='tbfac.Article'">
+      <span class="documentAuthor">
+      <tal:field i18n:translate="">Author:</tal:field>
+      <span tal:replace="obj/author">Name</span>
+      </span>
+      &mdash;
+      <span class="documentModified">
+      <tal:date i18n:translate="">at</tal:date>
+      <span tal:replace="python:view.toLocalizedTime(obj.CreationDate(),long_format=1)">Auguest 16, 2001 at 23:35:59</span>
+      </span>
+    </tal:article>
+
+    <p class="tileBody"
+     tal:condition="obj/Description">
+      <span class="description" tal:content="obj/Description" />
+    </p>
+
+    <p class="tileFooter">
+      <a href=""
+       tal:attributes="href obj/absolute_url">
+        <span class="hiddenStructure"><span tal:replace="obj/pretty_title_or_id" /> - </span>
+        <span i18n:translate="read_more_info"
+         tal:condition="python:obj.portal_type=='tbfac.Info'">Read More&hellip;</span>
+        <span i18n:translate="read_more_talk"
+         tal:condition="python:obj.portal_type=='tbfac.Article'">Read More&hellip;</span>
+      </a>
+    </p>
+
+    <div class="visualClear"><!-- --></div>
+
+    </tal:entry>
+
+  </div>
+
+<div metal:use-macro="context/batch_macros/macros/navigation" />
+
+</tal:entries>
+
+<div tal:replace="structure context/@@addthis_dependencies" />
+
+</metal:text>
+
+</body>
+</html>

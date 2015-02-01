@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone">
+
+    <plone:portlet
+        name="tbfac.content.InfoVenuesMapPortlet"
+        interface=".infovenuesmap.IInfoVenuesMapPortlet"
+        assignment=".infovenuesmap.Assignment"
+        renderer=".infovenuesmap.Renderer"
+        addview=".infovenuesmap.AddForm"
+        editview=".infovenuesmap.EditForm"
+        view_permission="zope2.View"
+        edit_permission="zope2.View"
+        />
+
+    <plone:portlet
+        name="tbfac.content.MostLikedPortlet"
+        interface=".mostliked.IMostLikedPortlet"
+        assignment=".mostliked.Assignment"
+        renderer=".mostliked.Renderer"
+        addview=".mostliked.AddForm"
+        editview=".mostliked.EditForm"
+        view_permission="zope2.View"
+        edit_permission="zope2.View"
+        />
+
+    <plone:portlet
+        name="tbfac.content.LatestReviewPortlet"
+        interface=".latestreview.ILatestReviewPortlet"
+        assignment=".latestreview.Assignment"
+        renderer=".latestreview.Renderer"
+        addview=".latestreview.AddForm"
+        editview=".latestreview.EditForm"
+        view_permission="zope2.View"
+        edit_permission="zope2.View"
+        />
+
+</configure>

@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tbfac.content">
+<body>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+<div tal:condition="context/info">
+<tal:info define="obj python:context.info.to_object">
+  <img src="#" alt="" style="float: left"
+   tal:attributes="src string:${obj/absolute_url}/@@download/image;
+                   alt string:${obj/Title}" />
+  <p><tal:field i18n:translate="">Info Title:</tal:field>
+     <span tal:content="obj/title">Info Title</span></p>
+  <p><tal:field i18n:translate="">Dates:</tal:field>
+     <span tal:replace="obj/startDate">Start Date</span>
+     <tal:end condition="obj/endDate"> -
+     <span tal:replace="obj/endDate" /></tal:end></p>
+  <p><tal:field i18n:translate="">Venue:</tal:field>
+  <span tal:content="python: obj.venue[0].to_object.Title()">Name</span>
+</tal:info>
+</div>
+<div class="visualClear"><!-- --></div>
+<span tal:condition="view/authorname">
+  <tal:field i18n:translate="">Jury:</tal:field>
+  <span tal:replace="view/authorname">Name</span>,
+</span>
+<span class="dcoumentModified">
+  <span tal:replace="python:view.toLocalizedTime(context.CreationDate(),long_format=1)">August 16, 2001 at 23:35:59</span>
+</span>
+
+<div tal:condition="context/text">
+<br>
+ <span tal:replace="structure context/text/output">Text</span>
+</div>
+
+<tal:back_ref define="back_refs python:view.findBackReferences()"
+              condition="back_refs">
+  <h2><strong style="border-style:solid; border-width:thin;">相關評論</strong></h2>
+  <p></p>
+  <tal:repeat repeat="back_ref back_refs">
+    <p>
+      <a tal:content="back_ref/Title" tal:attributes="href back_ref/absolute_url"></a>
+
+      <tal:reviewType tal:condition="python:back_ref.portal_type in ['tbfac.Review', 'tbfac.Quarterly']">
+        <span tal:define="portal_membership python:context.portal_membership;
+                          owner python:portal_membership.getMemberById(str(back_ref.getOwner()))"
+              tal:replace="python:'--- %s' % owner.getProperty('fullname')" />
+      </tal:reviewType>
+      <tal:articleType tal:condition="python:back_ref.portal_type == 'tbfac.Article'">
+        <span tal:replace="string:--- ${back_ref/author}" />
+      </tal:articleType>
+    </p>
+  </tal:repeat>
+</tal:back_ref>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tbfac.content">
+<body>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+
+<tal:checkOwner condition="python:str(context.getOwner()) == str(context.REQUEST['AUTHENTICATED_USER'])">
+ <span>本頁訊息由您創建，您可以</span>
+ <a tal:attributes="href string:${context/absolute_url}/edit"
+    style="background-color:#97C9FC">點此編輯</a>
+</tal:checkOwner>
+<span tal:condition="python:str(context.portal_membership.getAuthenticatedMember()) == 'admin'"
+      tal:content="string: | 本頁面由${context/getOwner}建立">
+</span>
+<span  tal:condition="python:str(context.portal_membership.getAuthenticatedMember()) == 'admin'"> |
+  <a tal:attributes="href string:${context/id}/edit"> 編輯本頁</a>
+</span>
+<span  tal:condition="python:str(context.portal_membership.getAuthenticatedMember()) == 'admin'"> |
+  <a tal:attributes="href string:${context/id}/delete_confirmation"> 刪除本頁</a>
+</span>
+<p />
+
+
+
+
+<div class="banner-box"
+     tal:define="banner nocall:context/banner"
+     tal:condition="nocall:banner">
+  <img src=""
+   tal:attributes="src string:${context/absolute_url}/@@download/banner/${banner/filename};
+                   width string:710;
+                   height string:300;" />
+</div>
+<span class="weblink"
+ tal:condition="context/eventURL">
+  <a tal:attributes="href context/eventURL;
+                     target string:_blank">
+    <img tal:attributes="src string:$portal_url/pic/weblink_normal.png" />
+  </a>
+</span>
+<p>
+  <span tal:condition="context/organizer">
+  <tal:field i18n:translate="">Organizer</tal:field>:
+  <span tal:replace="context/organizer">Name</span>
+  </span>
+  <br tal:condition="python: context.organizer and context.category" />
+  <span tal:define="items context/category|nothing"
+        tal:condition="items">
+  <tal:field i18n:translate="">Category</tal:field>:
+  <tal:items repeat="obj items">
+    <span tal:replace="obj">Value</span>
+    <span class="separator" tal:condition="not: repeat/obj/end">,</span>
+  </tal:items>
+  </span>
+</p>
+<p>
+  <tal:field i18n:translate="">Start Date</tal:field>:
+  <span tal:replace="context/startDate">Value</span>
+  <tal:end condition="context/endDate">
+  &nbsp;&nbsp;
+  <tal:field i18n:translate="">End Date</tal:field>:
+  <span tal:replace="context/endDate">Value</span>
+  </tal:end>
+  
+  <br />
+  <span tal:condition="context/dateDetails"
+   tal:define="pps modules/Products.PythonScripts.standard">
+  <tal:field i18n:translate="">Date Details</tal:field>:<br />
+  <span tal:replace="structure python:pps.newline_to_br(pps.html_quote(context.dateDetails))">Text</span>
+  </span>
+</p>
+<tal:block condition="context/venue">
+<p tal:condition="python: len(view.venueInfo()) == 1"
+   tal:define="venue python:view.venueInfo()[0]">
+  <tal:field i18n:translate="">Venue</tal:field>:
+    <a tal:attributes="href venue/url"
+       tal:content="venue/title">String</a><br />
+  <tal:field i18n:translate="">Address</tal:field>:
+    <span tal:replace="venue/address">String</span>
+</p>
+<ol tal:condition="python: len(view.venueInfo()) > 1">
+  <tal:venues repeat="venue view/venueInfo">
+  <li><tal:field i18n:translate="">Venue</tal:field>:
+    <a tal:attributes="href venue/url"
+       tal:content="venue/title">String</a></li>
+  <tal:field i18n:translate="">Address</tal:field>:
+    <span tal:replace="venue/address">String</span>
+  </tal:venues>
+</ol>
+</tal:block>
+
+<tal:newVenue condition="not:context/venue">
+  <tal:checkEmpty condition="context/addNewVenue">
+<p>活動地點:<span tal:content="context/addNewVenue"></span></p>
+  </tal:checkEmpty>
+</tal:newVenue>
+
+<tal:newVenueAddress condition="not:context/venue">
+  <tal:checkEmpty condition="context/addNewVenueAddress">
+<p>地址:<span tal:content="context/addNewVenueAddress"></span></p>
+  </tal:checkEmpty>
+</tal:newVenueAddress>
+
+
+
+<tal:text condition="context/text">
+  <tal:field i18n:translate="">About the Event</tal:field>:
+  <span tal:replace="structure context/text/output">Text</span>
+</tal:text>
+<p>
+  <tal:feeDetails condition="context/feeDetails"
+   tal:define="pps modules/Products.PythonScripts.standard">
+    <tal:field i18n:translate="">Fee Details</tal:field>:<br />
+    <span tal:replace="structure python:pps.newline_to_br(pps.html_quote(context.feeDetails))">Text</span>
+  </tal:feeDetails>
+</p>
+<p>
+  <tal:ticketURL condition="context/ticketURL">
+  <tal:field i18n:translate="">Ticket URL</tal:field>:
+  <a tal:attributes="href context/ticketURL"
+     tal:content="context/ticketURL">Text</a>
+  </tal:ticketURL>
+  <br tal:condition="python: (context.ticketURL and context.contactPhone)" />
+  <tal:contactPhone condition="context/contactPhone">
+  <tal:field i18n:translate="">Contact Phone</tal:field>:
+  <span tal:replace="context/contactPhone">Text</span>
+  </tal:contactPhone>
+  &nbsp;&nbsp;
+  <tal:contactName condition="context/contactName">
+  <tal:field i18n:translate="">Contact Name</tal:field>:
+  <span tal:replace="context/contactName">Name</span>
+  </tal:contactName>
+</p>
+
+
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#show_reason_zh_detail").click(function(){
+  $("div#reason_zh_detail").show();
+  $("div#reason_zh_short").hide();
+  });
+
+  $("#show_reason_zh_short").click(function(){
+  $("div#reason_zh_short").show();
+  $("div#reason_zh_detail").hide();
+  });
+
+  $("#show_reason_en_detail").click(function(){
+  $("div#reason_en_detail").show();
+  $("div#reason_en_short").hide();
+  });
+
+  $("#show_reason_en_short").click(function(){
+  $("div#reason_en_short").show();
+  $("div#reason_en_detail").hide();
+  });
+
+});
+</script>
+
+
+
+
+<tal:back_ref define="back_refs python:view.findBackReferences()"
+     condition="back_refs">
+  <h2><strong style="border-style:solid; border-width:thin;">相關評論</strong></h2>
+  <p></p>
+  <tal:repeat repeat="back_ref back_refs">
+    <p>
+      <a tal:content="back_ref/Title" tal:attributes="href back_ref/absolute_url"></a>
+
+      <tal:reviewType tal:condition="python:back_ref.portal_type in ['tbfac.Review', 'tbfac.Quarterly']">
+        <span tal:define="portal_membership python:context.portal_membership;
+                          owner python:portal_membership.getMemberById(str(back_ref.getOwner()))"
+              tal:replace="python:'--- %s' % owner.getProperty('fullname')" />
+      </tal:reviewType>
+      <tal:articleType tal:condition="python:back_ref.portal_type == 'tbfac.Article'">
+        <span tal:replace="string:--- ${back_ref/author}" />
+      </tal:articleType>
+    </p>
+  </tal:repeat>
+</tal:back_ref>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

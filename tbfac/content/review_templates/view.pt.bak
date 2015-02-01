@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="tbfac.content">
+<body>
+
+<metal:header fill-slot="header">
+
+
+</metal:header>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+<p aligh="right">
+  <span class="dcoumentModified">
+  <span tal:replace="view/authorname">Author</span>
+
+<tal:checkPublishDate condition="python:True if int(context.id) > 2014042700 else False">
+  <tal:firstTimePublishDate condition="python:True if hasattr(context, 'firstTimePublishDate') else False">
+    <span> | 發表時間：</span><span tal:content="python:context.firstTimePublishDate.strftime('%Y/%m/%d %H:%M')"></span>
+    <span> | 最後修訂時間：</span><span tal:content="python:context.modified().strftime('%Y/%m/%d %H:%M')"></span>
+  </tal:firstTimePublishDate>
+</tal:checkPublishDate>
+
+
+
+  </span>
+</p>
+<p>
+  <span tal:condition="python:context.info_ref or context.info_rvw">
+  <tal:field i18n:translate="">Reviewed Infos</tal:field>:
+  </span>
+  <span tal:condition="context/info_ref">
+    <tal:infos repeat="info context/info_ref">
+    <a tal:attributes="href info/to_object/absolute_url"
+       tal:content="info/to_object/title">Info Title</a>
+    </tal:infos>
+  </span>
+  <span tal:condition="context/info_rvw">
+  <span tal:replace="context/info_rvw">Name</span>
+  </span>
+</p>
+<span tal:condition="context/text">
+ <span tal:replace="structure context/text/output">Text</span>
+</span>
+
+<tal:back_ref define="back_refs python:view.findBackReferences()"
+     condition="back_refs">
+  <h2><strong>相關評論</strong></h2>
+  <p></p>
+  <tal:repeat repeat="back_ref back_refs">
+    <p>
+      <a tal:content="back_ref/Title" tal:attributes="href back_ref/absolute_url"></a>
+
+      <tal:reviewType tal:condition="python:back_ref.portal_type == 'tbfac.Review'">
+        <span tal:define="portal_membership python:context.portal_membership;
+                          owner python:portal_membership.getMemberById(str(back_ref.getOwner()))"
+              tal:replace="python:'--%s' % owner.getProperty('fullname')" />
+      </tal:reviewType>
+      <tal:articleType tal:condition="python:back_ref.portal_type == 'tbfac.Article'">
+        <span tal:replace="string:--${back_ref/author}" />
+      </tal:articleType>
+    </p>
+  </tal:repeat>
+</tal:back_ref>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<rolemap>
+<!--  <roles>
+    <role name="Advisor"/>
+  </roles> -->
+  <permissions>
+    <permission name="TBFAC: Add Info" acquire="False">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="TBFAC: Add Review" acquire="False">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="TBFAC: Add Quarterly" acquire="False">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="TBFAC: Add Article" acquire="False">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+      <role name="Contributor" />
+      <role name="Anonymous" />
+    </permission>
+    <permission name="TBFAC: Add Advert" acquire="False">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+    </permission>
+    <permission name="TBFAC: Add Jury" acquire="False">
+      <role name="Manager" />
+      <role name="Site Administrator" />
+      <role name="Owner" />
+    </permission>
+    <permission name="TBFAC: Add Recommendation" acquire="True">
+<!--      <role name="Advisor"/> -->
+      <role name="Manager"/>
+    </permission>
+  </permissions>
+</rolemap>
