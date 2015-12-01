@@ -17,7 +17,9 @@
 
 <p aligh="right">
   <span class="dcoumentModified">
+<a tal:attributes="href python:'%s/juries/%s' % (portal_url, context.owner_info()['id'])">
   <span tal:replace="view/authorname">Author</span>
+</a>
 
 <tal:checkPublishDate condition="python:context.id.isdigit() and int(context.id) > 2014042700">
   <tal:firstTimePublishDate condition="python:True if hasattr(context, 'firstTimePublishDate') else False">

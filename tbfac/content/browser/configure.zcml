@@ -131,6 +131,10 @@
     permission="cmf.ManagePortal"
     class=".seteditor.SetEditor" />
 
-
+  <browser:page
+    for="*"
+    name="getPermissions"
+    permission="zope2.View"
+    class=".views.getPermissions" />
 
 </configure>

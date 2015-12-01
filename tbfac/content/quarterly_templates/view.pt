@@ -28,7 +28,9 @@
 <div class="visualClear"><!-- --></div>
 <span tal:condition="view/authorname">
   <tal:field i18n:translate="">Jury:</tal:field>
-  <span tal:replace="view/authorname">Name</span>,
+<a tal:attributes="href python:'%s/juries/%s' % (portal_url, context.owner_info()['id'])">
+  <span tal:replace="view/authorname">Name</span>
+</a>,
 </span>
 <span class="dcoumentModified">
   <span tal:replace="python:view.toLocalizedTime(context.CreationDate(),long_format=1)">August 16, 2001 at 23:35:59</span>

@@ -125,3 +125,16 @@ class FacebookAdd(BrowserView):
             except:pass
         return 
 
+
+
+from plone import api
+
+class getPermissions(BrowserView):
+    """Get permission
+    """
+    def __call__(self):
+        catalog = getToolByName(self, 'portal_catalog')
+#        user = api.user.get_current()
+        import pdb; pdb.set_trace()
+        return api.user.get_permissions(user=user)
+

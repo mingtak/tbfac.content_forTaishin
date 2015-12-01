@@ -9,4 +9,7 @@
   <indexed_attr value="region" />
 </index>
 
+<column value="authorName"/>
+
+
 </object>

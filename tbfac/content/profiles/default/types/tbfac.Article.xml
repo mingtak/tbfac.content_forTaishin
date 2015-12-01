@@ -23,6 +23,7 @@
    <element value="tbfac.content.behaviors.createdid.INameFromCreated" />
    <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
    <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
+   <element value="tbfac.newcontent.specialtitle.ISpecialTitle" />
    </property>
 
   <!-- View information -->

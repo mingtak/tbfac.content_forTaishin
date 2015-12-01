@@ -31,13 +31,24 @@ from zope.component import getUtility
 from zope.intid.interfaces import IIntIds
 from zope.security import checkPermission
 from zc.relation.interfaces import ICatalog
+from plone.indexer import indexer
 
 #for Captcha
 from plone import api
 from plone.dexterity.browser.add import DefaultAddForm, DefaultAddView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from tbfac.newcontent.profile import IProfile
 
 
+"""
+def constraintAuthor(value):
+    if value is not None and != ''
+        return True
+    elif not api.user.is_anonymous():
+        return True
+    elif value is None or value == '':
+        raise Invalid(_(u"Please fill in author name"))
+"""
 def back_references(source_object, attribute_name):
     """Return back references from source object on specified attribute_name.
     """
@@ -54,12 +65,8 @@ def back_references(source_object, attribute_name):
     return result
 
 
-# Interface class; used to define content-type schema.
-
-
 class CaptchaError(Invalid):
     __doc__ = _(u"Captcha error, plaease try again.")
-
 
 class IArticle(form.Schema, IImageScaleTraversable):
     """
@@ -79,12 +86,27 @@ class IArticle(form.Schema, IImageScaleTraversable):
         title=_(u"Title"),
     )
 
+
+### related profile
+#    form.widget(info_ref=AutocompleteMultiFieldWidget)
+    form.mode(relatedProfile="hidden")
+    relatedProfile = RelationChoice(
+        title=_(u"Related Profile"),
+        source=ObjPathSourceBinder(
+            object_provides=IProfile.__identifier__,
+            ),
+        required=False,
+    )
+
+
     dexteritytextindexer.searchable('author')
-#    dexterity.read_permission(author='cmf.ManagePortal')
-#    dexterity.write_permission(author='cmf.ManagePortal')
+#    dexterity.read_permission(author='cmf.ManagePortal') Add portal member
+#    dexterity.write_permission(author=checkAnonymous)
     author = schema.TextLine(
         title=_(u"Author"),
-        required=True,
+        default=_(u"author name"),
+        required=False,
+#        constraint=constraintAuthor,
     )
 
     form.widget(info_ref=AutocompleteMultiFieldWidget)
@@ -115,16 +137,23 @@ class IArticle(form.Schema, IImageScaleTraversable):
     @invariant
     def validateCaptcha(data):
         portal = api.portal.get()
-        if "++add++tbfac.Article" in str(portal.REQUEST):
+        if "++add++tbfac.Article" in str(portal.REQUEST.URL):
             if not portal.restrictedTraverse('@@captcha').verify():
                 raise CaptchaError(_(u"Captcha error, plaease try again."))
 
 
+##### use updateWidgets to turn hidden/display
+from z3c.form.interfaces import HIDDEN_MODE
 class AddForm(DefaultAddForm):
     template = ViewPageTemplateFile('macrosForArticle.pt')
 
     def update(self):
         DefaultAddForm.update(self)
+
+    def updateWidgets(self):
+        super(AddForm, self).updateWidgets()
+        if not api.user.is_anonymous() and 'Manager' not in api.user.get_roles():
+            self.widgets['author'].mode = HIDDEN_MODE
 
 
 class AddView(DefaultAddView):
@@ -157,6 +186,16 @@ class View(grok.View):
     grok.context(IArticle)
     grok.require('zope2.View')
     grok.name('view')
+
+    def author_name(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        if self.context.owner_info()['id'] == 'admin':
+            return None
+        brain = catalog({'Type':'Profile', 'Creator':self.context.owner_info()['id']})
+        if not brain:
+            return None
+        return brain[0].Title        
+    
 
     def update(self):
         membership = getToolByName(self.context, 'portal_membership')
@@ -191,3 +230,9 @@ class View(grok.View):
                 backReferences.pop(i)
         return backReferences
 
+
+@indexer(IArticle)
+def authorName_indexer(obj):
+    authorName = obj.getOwner().getProperty('fullname')
+    return authorName
+grok.global_adapter(authorName_indexer, name='authorName')

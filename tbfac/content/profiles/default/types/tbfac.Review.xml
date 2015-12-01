@@ -22,6 +22,7 @@
   <property name="behaviors">
    <element value="tbfac.content.behaviors.createdid.INameFromCreated" />
    <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
+   <element value="tbfac.newcontent.specialtitle.ISpecialTitle" />
   </property>
 
   <!-- View information -->
